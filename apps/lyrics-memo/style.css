@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f7f3eb;
+  color: #222;
+}
+
+.app {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  text-decoration: none;
+  color: #444;
+}
+
+.app-header {
+  margin-bottom: 30px;
+}
+
+.app-label {
+  display: inline-block;
+  background: #222;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.app-header h1 {
+  font-size: 48px;
+  margin: 15px 0;
+}
+
+.editor-card,
+.list-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+}
+
+.editor-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 28px;
+}
+
+label {
+  display: block;
+  margin-bottom: 18px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.7;
+}
+
+#lyricsInput {
+  min-height: 650px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+#memoInput {
+  min-height: 150px;
+}
+
+.youtube-preview {
+  margin-top: 8px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #111;
+  color: #fff;
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+}
+
+.youtube-preview iframe {
+  width: 100%;
+  height: 360px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#saveBtn {
+  background: #f4b844;
+  font-weight: bold;
+}
+
+#clearBtn {
+  background: #eee;
+}
+
+.status {
+  margin-top: 16px;
+  color: #666;
+}
+
+.list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.list-head input {
+  max-width: 260px;
+}
+
+.memo-list {
+  display: grid;
+  gap: 14px;
+}
+
+.memo-card {
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.compact {
+  cursor: pointer;
+}
+
+.memo-summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.memo-icon {
+  font-size: 28px;
+}
+
+.memo-summary h3 {
+  margin: 0 0 4px;
+}
+
+.delete-btn {
+  margin-top: 12px;
+  background: #ff6464;
+  color: white;
+}
+
+.empty {
+  color: #777;
+}
+
+@media (max-width: 900px) {
+  .editor-layout {
+    grid-template-columns: 1fr;
+  }
+
+  #lyricsInput {
+    min-height: 420px;
+  }
+
+  .youtube-preview iframe {
+    height: 260px;
+  }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kotodama Apps</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="logo" id="siteLogo">Kotodama Apps</div>
+    <nav>
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+      <a href="#support">Support</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <p class="badge" id="siteBadge"></p>
+    <h1 id="siteSlogan"></h1>
+    <p class="lead" id="siteDescription"></p>
+
+    <div class="hero-buttons">
+      <a href="#apps" class="btn primary">アプリを見る</a>
+      <button class="btn secondary" id="randomBtn">ランダムで探す</button>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" id="apps">
+      <div class="section-head">
+        <h2>Apps</h2>
+        <input id="searchInput" type="text" placeholder="アプリを検索..." />
+      </div>
+
+      <div class="categories" id="categoryButtons"></div>
+
+      <div id="appList" class="app-grid"></div>
+    </section>
+
+    <section class="section about" id="about">
+      <h2>About</h2>
+      <p>
+        Kotodama Apps は、思いついたアイデアを無料で使えるWebアプリとして公開する場所です。
+        便利なもの、少し遊べるもの、日常で使える小さなツールを育てていきます。
+      </p>
+    </section>
+
+    <section class="section support" id="support">
+      <h2>Support</h2>
+      <p>
+        すべてのアプリは無料で使えます。気に入った方だけ、お賽銭感覚で応援してもらえると嬉しいです。
+      </p>
+      <a class="btn support-btn" id="supportLink" href="#" target="_blank">☕ 応援する</a>
+    </section>
+  </main>
+
+  <footer>
+    <p id="footerText"></p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="apps.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

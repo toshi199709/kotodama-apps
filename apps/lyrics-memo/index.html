@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lyrics Memo | Kotodama Apps</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <a class="back-link" href="../../index.html">← Kotodama Apps に戻る</a>
+
+    <header class="app-header">
+      <p class="app-label">Creative Tool</p>
+      <h1>🎵 Lyrics Memo</h1>
+      <p>曲名・アーティスト・YouTube・歌詞・メモを保存できます。</p>
+    </header>
+
+    <section class="editor-card">
+      <div class="editor-layout">
+        <div class="left-panel">
+          <label>
+            曲名
+            <input id="titleInput" type="text" placeholder="例：マジックメイカー" />
+          </label>
+
+          <label>
+            アーティスト
+            <input id="artistInput" type="text" placeholder="例：susumu" />
+          </label>
+
+          <label>
+            YouTube
+            <div id="youtubePreview" class="youtube-preview">
+              <p>ここにYouTubeプレビューが表示されます。</p>
+            </div>
+          </label>
+
+          <label>
+            YouTube URL
+            <input id="youtubeInput" type="url" placeholder="例：https://www.youtube.com/watch?v=..." />
+          </label>
+
+          <div class="actions">
+            <button id="saveBtn" type="button">保存する</button>
+            <button id="clearBtn" type="button">入力をクリア</button>
+          </div>
+
+          <p id="statusText" class="status">まだ保存されていません。</p>
+        </div>
+
+        <div class="right-panel">
+          <label>
+            歌詞
+            <textarea id="lyricsInput" placeholder="ここに歌詞やフレーズを書きます"></textarea>
+          </label>
+
+          <label>
+            メモ
+            <textarea id="memoInput" placeholder="歌い方、コード進行、アイデアなど"></textarea>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="list-card">
+      <div class="list-head">
+        <h2>保存済みメモ</h2>
+        <input id="searchInput" type="text" placeholder="検索..." />
+      </div>
+
+      <div id="memoList" class="memo-list">
+        <p class="empty">まだ保存済みメモはありません。</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
