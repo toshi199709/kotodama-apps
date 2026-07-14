@@ -1,0 +1,275 @@
+/* =========================
+   Life Debug 操作機能
+========================= */
+
+.bug-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bug-card:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 12px 28px rgba(54, 48, 34, 0.09);
+}
+
+.bug-card__occurrence {
+  background: #edf3e8;
+  color: #47613c;
+}
+
+.bug-card__solution {
+  margin: 16px 0 0;
+  padding: 14px 15px;
+
+  background: #f8f3e7;
+
+  border-left: 4px solid #d2a94f;
+  border-radius: 12px;
+
+  color: #514936;
+
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.bug-card__solution-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #94701e;
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.bug-card__actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+
+  margin-top: 17px;
+}
+
+.bug-action-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  min-height: 43px;
+  padding: 10px 11px;
+
+  border: none;
+  border-radius: 12px;
+
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.bug-action-button:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.bug-action-button--again {
+  background: #eeeadf;
+  color: #504b40;
+}
+
+.bug-action-button--solution {
+  background: #f5ddb0;
+  color: #5f4517;
+}
+
+.bug-action-button--resolved {
+  background: #354b3b;
+  color: #ffffff;
+}
+
+.solution-editor {
+  margin-top: 14px;
+  padding: 15px;
+
+  background: #f7f3ea;
+
+  border: 1px solid #e3dac8;
+  border-radius: 15px;
+}
+
+.solution-editor__label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.solution-editor__input {
+  width: 100%;
+  min-height: 90px;
+
+  padding: 12px 13px;
+
+  border: 1px solid #d9cfbe;
+  border-radius: 12px;
+
+  background: #fffdf9;
+  color: #282828;
+
+  line-height: 1.7;
+
+  resize: vertical;
+  outline: none;
+}
+
+.solution-editor__input:focus {
+  border-color: #c89a39;
+
+  box-shadow:
+    0 0 0 3px rgba(200, 154, 57, 0.14);
+}
+
+.solution-editor__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+
+  margin-top: 10px;
+}
+
+.solution-editor__button {
+  padding: 9px 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.solution-editor__button--cancel {
+  background: #e8e4dc;
+  color: #47433b;
+}
+
+.solution-editor__button--save {
+  background: #2a2a28;
+  color: #ffffff;
+}
+
+.resolved-section {
+  margin-top: 28px;
+  padding: 26px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border: 1px solid rgba(39, 39, 39, 0.07);
+  border-radius: 24px;
+
+  box-shadow:
+    0 14px 36px rgba(54, 48, 34, 0.08);
+}
+
+.resolved-list {
+  display: grid;
+  gap: 14px;
+
+  margin-top: 22px;
+}
+
+.resolved-card {
+  padding: 18px;
+
+  background:
+    radial-gradient(circle at top right,
+      rgba(218, 235, 207, 0.65),
+      transparent 38%),
+    #fffdf8;
+
+  border: 1px solid rgba(73, 109, 75, 0.14);
+  border-radius: 18px;
+}
+
+.resolved-card__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.resolved-card__title {
+  margin: 0;
+
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.resolved-card__date {
+  flex: 0 0 auto;
+
+  color: #777e73;
+
+  font-size: 12px;
+}
+
+.resolved-card__message {
+  margin: 12px 0 0;
+
+  color: #4d624f;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.resolved-empty {
+  margin-top: 20px;
+  padding: 24px;
+
+  background: #f7f5ef;
+  color: #777064;
+
+  border-radius: 16px;
+
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .bug-card__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .bug-action-button {
+    min-height: 46px;
+
+    font-size: 13px;
+  }
+
+  .resolved-section {
+    padding: 21px;
+
+    border-radius: 20px;
+  }
+
+  .resolved-card__top {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="description" content="毎日の小さな不便を見つけて、少しずつ暮らしを整える生活改善アプリ。">
+
+  <meta name="theme-color" content="#f6f3ea">
+
+  <title>Life Debug | Kotodama Apps</title>
+
+  <link rel="icon" type="image/png" href="../../favicon.png">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="actions.css" />
+</head>
+
+<body>
+
+  <!-- =========================
+       ヘッダー
+  ========================== -->
+  <header class="app-header">
+    <a href="../../" class="back-link">
+      ← Kotodama Apps
+    </a>
+
+    <p class="app-header__version">
+      Life OS v1.0.0
+    </p>
+  </header>
+
+
+  <!-- =========================
+       メイン
+  ========================== -->
+  <main class="app-main">
+
+    <!-- =========================
+         ヒーロー
+    ========================== -->
+    <section class="hero">
+
+      <div class="hero__icon" aria-hidden="true">
+        🛠️
+      </div>
+
+      <p class="hero__label">
+        Life Debug
+      </p>
+
+      <h1>
+        毎日の小さな不便を、<br>
+        ひとつずつ整える。
+      </h1>
+
+      <p class="hero__description">
+        うまくできなかった自分を責めるのではなく、
+        暮らしが少し楽になるヒントを見つけるアプリです。
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         今日のメッセージ
+    ========================== -->
+    <section class="message-card">
+
+      <p class="message-card__label">
+        今日のメッセージ
+      </p>
+
+      <p class="message-card__text">
+        気づけたことが、最初のアップデートです。
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         状況表示
+    ========================== -->
+    <section class="summary-grid">
+
+      <article class="summary-card">
+        <p class="summary-card__number" id="watchingCount">
+          0
+        </p>
+
+        <p class="summary-card__label">
+          観察中
+        </p>
+      </article>
+
+      <article class="summary-card">
+        <p class="summary-card__number" id="resolvedCount">
+          0
+        </p>
+
+        <p class="summary-card__label">
+          整ったこと
+        </p>
+      </article>
+
+      <article class="summary-card">
+        <p class="summary-card__number" id="totalUpdateCount">
+          0
+        </p>
+
+        <p class="summary-card__label">
+          発見した回数
+        </p>
+      </article>
+
+    </section>
+
+
+    <!-- =========================
+         登録ボタン
+    ========================== -->
+    <section class="action-section">
+
+      <button type="button" class="primary-button" id="openBugFormButton">
+        ＋ 小さな不便を記録する
+      </button>
+
+      <p class="action-section__note">
+        大きな悩みでなくても大丈夫です。
+        「少し面倒だったこと」を残してみましょう。
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         登録フォーム
+    ========================== -->
+    <section class="form-card is-hidden" id="bugFormSection">
+
+      <div class="section-title-row">
+        <div>
+          <p class="section-label">
+            New Discovery
+          </p>
+
+          <h2>
+            何が少し面倒でしたか？
+          </h2>
+        </div>
+
+        <button type="button" class="close-button" id="closeBugFormButton" aria-label="入力画面を閉じる">
+          ×
+        </button>
+      </div>
+
+      <form id="bugForm">
+
+        <div class="form-group">
+          <label for="bugTitle">
+            小さな不便
+          </label>
+
+          <input type="text" id="bugTitle" maxlength="50" placeholder="例：帰宅後に鍵を探した" required />
+        </div>
+
+        <div class="form-group">
+          <label for="lostMinutes">
+            どのくらい時間がかかりましたか？
+          </label>
+
+          <select id="lostMinutes">
+            <option value="0">ほとんどかかっていない</option>
+            <option value="1">約1分</option>
+            <option value="3">約3分</option>
+            <option value="5">約5分</option>
+            <option value="10">約10分</option>
+            <option value="15">約15分</option>
+            <option value="30">約30分以上</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="bugMemo">
+            覚えておきたいこと
+            <span>任意</span>
+          </label>
+
+          <textarea id="bugMemo" rows="4" maxlength="200" placeholder="例：急いでいる朝に起こりやすい"></textarea>
+        </div>
+
+        <button type="submit" class="primary-button">
+          発見として記録する
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <!-- =========================
+         観察中一覧
+    ========================== -->
+    <section class="list-section">
+
+      <div class="section-title-row">
+        <div>
+          <p class="section-label">
+            Watching
+          </p>
+
+          <h2>
+            観察中の小さな不便
+          </h2>
+        </div>
+      </div>
+
+      <div class="empty-state" id="emptyState">
+
+        <div class="empty-state__icon" aria-hidden="true">
+          🌱
+        </div>
+
+        <p class="empty-state__title">
+          まだ記録はありません
+        </p>
+
+        <p class="empty-state__text">
+          今日少しだけ面倒だったことを、
+          一つ記録してみましょう。
+        </p>
+
+      </div>
+
+      <div class="bug-list" id="bugList"></div>
+
+    </section>
+
+
+    <!-- =========================
+         アプリの考え方
+    ========================== -->
+    <section class="concept-card">
+
+      <p class="section-label">
+        Concept
+      </p>
+
+      <h2>
+        直すために責めるのではなく、<br>
+        楽になるために気づく。
+      </h2>
+
+      <p>
+        Life Debugでは「失敗」や「未達成」という言葉を使いません。
+        すぐに解決できないことも、あなたの暮らしを知るための大切な観察記録です。
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       完了メッセージ
+  ========================== -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+
+    <p class="toast__title">
+      新しい発見を記録しました
+    </p>
+
+    <p class="toast__message">
+      気づけたことが、最初のアップデートです。
+    </p>
+
+  </div>
+
+
+  <!-- =========================
+       フッター
+  ========================== -->
+  <footer class="app-footer">
+    <p>
+      Life Debug by Kotodama Apps
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
