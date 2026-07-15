@@ -623,3 +623,82 @@ a {
     gap: 5px;
   }
 }
+
+/* =========================
+   今日の発見
+========================= */
+
+.message-card {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.message-card::after {
+  content: "";
+
+  position: absolute;
+  top: -45px;
+  right: -45px;
+
+  width: 120px;
+  height: 120px;
+
+  background: rgba(255, 210, 105, 0.16);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.message-card__label,
+.message-card__text,
+.message-card__subtext {
+  position: relative;
+  z-index: 1;
+}
+
+.message-card__subtext {
+  margin: 8px 0 0;
+
+  color: #777064;
+
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.message-card.is-growth {
+  background:
+    radial-gradient(circle at top right,
+      rgba(206, 231, 190, 0.7),
+      transparent 38%),
+    #fffdf8;
+
+  border-color: rgba(72, 112, 72, 0.17);
+}
+
+.message-card.is-growth .message-card__label {
+  color: #557348;
+}
+
+.message-card.is-observation {
+  background:
+    radial-gradient(circle at top right,
+      rgba(255, 224, 153, 0.7),
+      transparent 38%),
+    #fffdf8;
+}
+
+.message-card.is-rest {
+  background:
+    radial-gradient(circle at top right,
+      rgba(206, 220, 238, 0.72),
+      transparent 38%),
+    #fffdf8;
+
+  border-color: rgba(78, 100, 132, 0.14);
+}
+
+.message-card.is-rest .message-card__label {
+  color: #526b88;
+}

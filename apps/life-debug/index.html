@@ -28,7 +28,7 @@
       ← Kotodama Apps
     </a>
 
-    <p class="app-header__version">
+    <p class="app-header__version" id="appVersion">
       Life OS v1.0.0
     </p>
   </header>
@@ -66,17 +66,47 @@
 
 
     <!-- =========================
-         今日のメッセージ
+         今日の発見
     ========================== -->
-    <section class="message-card">
+    <section class="message-card" id="dailyDiscoveryCard">
 
       <p class="message-card__label">
-        今日のメッセージ
+        🌱 今日の発見
       </p>
 
-      <p class="message-card__text">
+      <p class="message-card__text" id="dailyDiscoveryText">
         気づけたことが、最初のアップデートです。
       </p>
+
+      <p class="message-card__subtext" id="dailyDiscoverySubtext">
+        小さな不便を記録すると、暮らしの傾向が少しずつ見えてきます。
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         Life Update
+    ========================== -->
+    <section class="life-update-card" id="lifeUpdateCard">
+
+      <div class="life-update-card__header">
+        <div>
+          <p class="life-update-card__label">
+            Life Update
+          </p>
+
+          <h2 class="life-update-card__version" id="lifeUpdateVersion">
+            Version 1.0.0
+          </h2>
+        </div>
+
+        <span class="life-update-card__badge">
+          PATCH NOTES
+        </span>
+      </div>
+
+      <div class="life-update-card__content" id="lifeUpdateContent"></div>
 
     </section>
 
