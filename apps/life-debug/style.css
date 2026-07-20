@@ -779,3 +779,154 @@ a {
   color: #666;
   line-height: 1.6;
 }
+
+/* =========================
+   Life Priority
+========================= */
+
+.priority-section {
+  margin-bottom: 32px;
+}
+
+.priority-card {
+  padding: 22px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 205, 95, 0.45);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at top right,
+      rgba(255, 220, 120, 0.38),
+      transparent 38%),
+    linear-gradient(135deg,
+      #fffdf7,
+      #fff8e7);
+  box-shadow:
+    0 12px 30px rgba(126, 91, 28, 0.09);
+}
+
+.priority-card::after {
+  content: "";
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  top: -70px;
+  right: -45px;
+  border-radius: 50%;
+  background: rgba(255, 202, 76, 0.13);
+  pointer-events: none;
+}
+
+.priority-card__top {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.priority-card__label {
+  margin: 0 0 6px;
+  color: #b07a16;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.priority-card__top h2 {
+  margin: 0;
+  color: #3c3528;
+  font-size: 1.35rem;
+  line-height: 1.45;
+}
+
+.priority-card__icon {
+  z-index: 1;
+  flex-shrink: 0;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.priority-card__content {
+  margin-top: 20px;
+}
+
+.priority-card__title {
+  margin: 0;
+  color: #332d23;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.priority-card__stats {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.priority-card__stat {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid rgba(174, 129, 42, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.priority-card__stat-label {
+  margin: 0;
+  color: #8a7b62;
+  font-size: 0.78rem;
+}
+
+.priority-card__stat-value {
+  margin: 4px 0 0;
+  color: #4d4230;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.priority-card__message {
+  margin: 16px 0 0;
+  color: #6f624d;
+  font-size: 0.93rem;
+  line-height: 1.75;
+}
+
+.priority-card__solution {
+  margin: 14px 0 0;
+  padding: 13px 14px;
+  border-left: 3px solid #db9f2c;
+  border-radius: 0 12px 12px 0;
+  background: rgba(255, 255, 255, 0.62);
+  color: #5b4d38;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.priority-card__solution-label {
+  display: block;
+  margin-bottom: 3px;
+  color: #a66e0b;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.priority-card__empty {
+  margin: 0;
+  color: #766c5d;
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .priority-card {
+    padding: 18px;
+  }
+
+  .priority-card__top h2 {
+    font-size: 1.15rem;
+  }
+
+  .priority-card__stats {
+    flex-direction: column;
+  }
+}

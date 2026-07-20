@@ -1397,7 +1397,116 @@ function renderRanking() {
     }
   );
 }
+/* =========================
+   Life Priority
+========================= */
 
+function createPriorityStat(labelText, valueText) {
+  const stat = document.createElement("div");
+  stat.className = "priority-card__stat";
+
+  const label = document.createElement("p");
+  label.className = "priority-card__stat-label";
+  label.textContent = labelText;
+
+  const value = document.createElement("p");
+  value.className = "priority-card__stat-value";
+  value.textContent = valueText;
+
+  stat.append(label, value);
+
+  return stat;
+}
+
+function renderLifePriority() {
+
+  const container =
+    document.getElementById("priorityContent");
+
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = "";
+
+  const target = getRankingEntries()[0];
+
+  if (!target) {
+
+    const empty =
+      document.createElement("p");
+
+    empty.className =
+      "priority-card__empty";
+
+    empty.textContent =
+      "Life Bugを記録すると、今日一番整えると効果が大きいものが表示されます。";
+
+    container.appendChild(empty);
+
+    return;
+  }
+
+  const title =
+    document.createElement("h3");
+
+  title.className =
+    "priority-card__title";
+
+  title.textContent =
+    `今日は「${target.title}」を整えてみましょう`;
+
+  const stats =
+    document.createElement("div");
+
+  stats.className =
+    "priority-card__stats";
+
+  stats.append(
+    createPriorityStat(
+      "発生回数",
+      `${target.occurrenceCount}回`
+    ),
+    createPriorityStat(
+      "時間ロス",
+      target.lostMinutes *
+        target.occurrenceCount > 0
+        ? `約${target.lostMinutes * target.occurrenceCount}分`
+        : "ほぼなし"
+    )
+  );
+
+  const message =
+    document.createElement("p");
+
+  message.className =
+    "priority-card__message";
+
+  message.textContent =
+    "今日は全部改善しようとしなくて大丈夫です。この1つだけ意識すると、一番効果が期待できます。";
+
+  container.append(
+    title,
+    stats,
+    message
+  );
+
+  if (target.solution) {
+
+    const solution =
+      document.createElement("div");
+
+    solution.className =
+      "priority-card__solution";
+
+    solution.innerHTML =
+      `<span class="priority-card__solution-label">おすすめの整え方</span>${target.solution}`;
+
+    container.appendChild(solution);
+
+  }
+
+}
 /* =========================
    全体表示
 ========================= */
@@ -1449,6 +1558,7 @@ function renderEntries() {
   renderDailyDiscovery();
   renderLifeUpdate();
   renderRanking();
+  renderLifePriority();
 }
 
 /* =========================
