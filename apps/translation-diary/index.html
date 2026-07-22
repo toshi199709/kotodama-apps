@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="日本語の日記を英語へ変換し、好きな音楽と一緒に残せる日記アプリ。">
+  <title>変換日記 | Kotodama Apps</title>
+  <script>
+    if (localStorage.getItem("translationDiaryTheme") === "dark") {
+      document.documentElement.dataset.theme = "dark";
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="back-link" href="../../">← Kotodama Apps</a>
+    <div class="header-actions">
+      <span class="version">Translation Diary v1.1</span>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="夜モードに切り替える" title="夜モード">
+        <span id="themeIcon" aria-hidden="true">☾</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero">
+      <span class="hero-icon" aria-hidden="true">📖</span>
+      <p class="eyebrow">Translation Diary</p>
+      <h1>今日の言葉を、英語でも残そう。</h1>
+      <p>好きな音楽を聴きながら日本語で書くだけ。日記を自然な英語へ変換して、二つの言葉で保存できます。</p>
+    </section>
+
+    <section class="music-card card" aria-labelledby="musicTitle">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">Writing BGM</p>
+          <h2 id="musicTitle">今日の音楽</h2>
+        </div>
+        <span class="music-note" aria-hidden="true">♫</span>
+      </div>
+      <div class="url-row">
+        <label class="sr-only" for="youtubeUrl">YouTube URL</label>
+        <input id="youtubeUrl" type="url" inputmode="url" placeholder="YouTubeの動画・プレイリストURLを貼り付け">
+        <button id="loadMusicButton" class="secondary-button" type="button">音楽をセット</button>
+      </div>
+      <p id="musicMessage" class="helper-text">URLを貼ると、この画面で再生しながら日記を書けます。</p>
+      <div id="playerWrap" class="player-wrap" hidden>
+        <iframe id="youtubePlayer" title="YouTube player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="editor-grid">
+      <article class="card editor-card">
+        <div class="section-heading compact">
+          <div>
+            <p class="section-kicker">Japanese</p>
+            <h2>今日の日記</h2>
+          </div>
+          <span id="japaneseCount" class="count">0文字</span>
+        </div>
+        <label class="sr-only" for="japaneseDiary">日本語の日記</label>
+        <textarea id="japaneseDiary" maxlength="5000" placeholder="今日あったこと、感じたことを自由に書いてみよう。"></textarea>
+        <button id="translateButton" class="primary-button" type="button">
+          <span>英語に変換する</span>
+          <span aria-hidden="true">→</span>
+        </button>
+        <p class="privacy-note">翻訳時のみ、入力した文章が外部の翻訳サービスへ送信されます。</p>
+      </article>
+
+      <article class="card editor-card english-card">
+        <div class="section-heading compact">
+          <div>
+            <p class="section-kicker">English</p>
+            <h2>English Diary</h2>
+          </div>
+          <span id="englishStatus" class="status-pill">変換待ち</span>
+        </div>
+        <label class="sr-only" for="englishDiary">英語の日記</label>
+        <textarea id="englishDiary" placeholder="英語に変換した文章がここに表示されます。変換後の文章は自由に直せます。"></textarea>
+        <button id="saveButton" class="save-button" type="button">この日記を保存する</button>
+      </article>
+    </section>
+
+    <section class="history-section" aria-labelledby="historyTitle">
+      <div class="history-heading">
+        <div>
+          <p class="section-kicker">Archive</p>
+          <h2 id="historyTitle">これまでの日記</h2>
+        </div>
+        <span id="entryCount" class="archive-count">0件</span>
+      </div>
+      <div id="emptyHistory" class="empty-history">
+        <span aria-hidden="true">🌱</span>
+        <p>最初の日記を書くと、ここに思い出が育っていきます。</p>
+      </div>
+      <div id="historyList" class="history-list"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <footer>変換日記 by Kotodama Apps</footer>
+  <script src="script.js"></script>
+</body>
+</html>
